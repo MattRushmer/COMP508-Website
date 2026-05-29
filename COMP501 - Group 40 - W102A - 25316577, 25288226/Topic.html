@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Mesh Network Satellites - Our Topic</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+
+				<!-- Banner -->
+
+					<section id="banner" class="style1">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Our Topic of Research</h1>
+							</header>
+							<div class="content">
+								<p>What are LEO mesh network satellite systems, and how do constellations like <br /> Starlink use inter-satellite links to deliver low-latency broadband internet<br /> to rural and remote communities that traditional infrastructure has failed<br /> to reach?</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+						<section id="one">
+							<div class="inner">
+								<header class="major">
+									<h2>Why Altitude Matters: GEO vs LEO</h2>
+								</header>
+								<p>
+									To understand why systems like Starlink represent a meaningful shift in satellite communications, it helps to start with the physics. Satellites don't all orbit at the same altitude where a satellite sits in space has a profound effect on how useful it is for communications, and the differences between orbital classes are not subtle.
+
+									Traditional communication satellites operate in what's called geostationary orbit, or GEO. At roughly 36,000 kilometres above the Earth's surface, a satellite in GEO moves at exactly the same angular speed as the Earth's rotation, meaning it appears to hover in a fixed position over one spot on the equator. This is genuinely useful: a single GEO satellite can see about a third of the planet's surface, and a dish pointed at it never has to track a moving target. For broadcast television and older satellite internet services, this made GEO the dominant choice for decades.<br /><br />
+
+									The problem is the distance. At 36,000 km, a signal travelling at the speed of light still takes roughly 240 milliseconds just to make the one-way trip from ground to satellite. Round-trip latency the time it takes to send a request and get a response sits around 600 milliseconds or more for GEO systems. That's acceptable for watching a satellite TV broadcast, but it makes real-time applications like video calls, online gaming, or cloud-based work frustrating or unusable. It also creates headaches for protocols like TCP/IP that were designed assuming much shorter round-trip times.<br /><br />
+
+									Low Earth Orbit, by contrast, places satellites at altitudes typically ranging from around 400 to 1,200 kilometres. Starlink's operational shells sit mostly around 550 km. At that distance, the signal travel time drops dramatically round-trip latency for Starlink users has been measured at roughly 25 to 60 milliseconds under good conditions, which is broadly comparable to a ground-based broadband connection. This is the central technical advantage that makes LEO satellite broadband worth taking seriously.
+								</p>
+							</div>
+						</section>
+
+						<!-- Two -->
+						<section id="two" class="spotlights">
+							<section>
+								<a href="generic.html" class="image">
+									<img src="images\SatImg\Topic.png" alt="" data-position="top center" />
+								</a>
+								<div class="content">
+									<div class="inner">
+										<header class="major">
+											<h3>The Coverage Problem: Why One Satellite Isn't Enough</h3>
+										</header>
+										<p>However, proximity to Earth introduces an immediate complication: coverage. A LEO satellite at 550 km sees only a comparatively small footprint on the Earth's surface — and, critically, it's moving fast. A single LEO satellite completes a full orbit in roughly 90 to 95 minutes, streaking across the sky in a matter of minutes from the perspective of a ground observer. For continuous coverage of any given point on Earth, you need hundreds or thousands of satellites arranged across multiple orbital planes, timed so that there's always at least one overhead with a clear line of sight. This is the logic behind the constellation model — Starlink had deployed over 7,000 satellites by end of 2025.</p>
+									</div>
+								</div>
+							</section>
+						</section>
+
+							<!-- Three -->
+						<section id="three">
+							<div class="inner">
+								<header class="major">
+									<h2>From Bent-Pipe to Mesh: How Inter-Satellite Links Changed Everything</h2>
+								</header>
+								<p>
+									The word "mesh" in this context refers to something specific and technically important. In networking, a mesh topology is one where nodes maintain direct connections to multiple neighbours, and data can hop node-to-node along multiple paths rather than always returning to a central hub. Early Starlink used a "bent-pipe" relay model: your dish sends a signal up to a satellite, which reflects it down to a nearby ground station, which then connects to the internet. The satellite itself does minimal processing. This isn't really a mesh — it requires a ground station within the satellite's coverage footprint, which limits usefulness over oceans and remote regions.<br /><br />
+
+									The shift to a genuine mesh comes from inter-satellite links, or ISLs — direct laser communication links between satellites themselves. Newer Starlink satellites use laser-based ISLs to pass data laterally across the constellation in space before it descends to a ground station. Laser links carry very high bandwidth over long distances with minimal interference, since the absence of atmosphere eliminates the scattering that limits ground-based laser communication. With ISLs in place, a user in a remote area can send data up to a satellite, have it routed through multiple ISL hops across the constellation, and descend to a ground station thousands of kilometres away — without any ground infrastructure beneath most of that path.<br /><br />
+
+									The routing challenge this creates is genuinely complex. Satellites orbit at roughly 7.5 km/s, so the network topology — which satellites can see each other — changes continuously. Routing algorithms must predict future link states and pre-plan paths that remain valid long enough to be useful. Research has produced approaches like time-expanded graphs, where known future satellite positions are used to compute stable routes across handoff sequences, and on-demand schemes that recalculate dynamically. Managing this distributed, time-varying network at scale, with thousands of moving nodes and millisecond-level routing decisions, is one of the genuinely hard engineering problems in modern networking.
+								</p>
+							</div>
+						</section>
+
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
